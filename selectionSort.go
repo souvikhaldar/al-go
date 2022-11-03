@@ -2,32 +2,27 @@ package main
 
 import "fmt"
 
-func SelectionSort(input []int) []int {
-	n := len(input)
-	result := make([]int, n)
-	for i := range input {
-		var pos int
-		result[i], pos = min(input)
-		input[pos] = 99999999
+func InsertionSort(inp []int) []int {
+	for i := 0; i < len(inp); i++ {
+		inter := inp[i:]
+		pos, min := minimum(inter)
+		inp[i], inp[pos+i] = min, inp[i]
 	}
-	return result
+	return inp
 }
-
-// min returns the min value in the inp array and its position
-func min(inp []int) (int, int) {
-	min := 9999999
-	var posMin int
-	for pos, i := range inp {
+func minimum(inp []int) (pos, val int) {
+	min := 999999
+	for p, i := range inp {
 		if i < min {
-			posMin = pos
 			min = i
+			pos = p
 		}
 	}
-	return min, posMin
+	return pos, min
 }
 
 func main() {
-	input := []int{2, 7, 1, 5, 6, 6, 9, -1, 43, 75, 17}
-	fmt.Println("Input: ", input)
-	fmt.Println("After sorting: ", SelectionSort(input))
+	inp := []int{4, 6, 2, 8, 1, 9, 5, 4, 4, 76, 123, 87, 9, -4, -2, 34}
+	fmt.Println("Input: ", inp)
+	fmt.Println("After sorting: ", InsertionSort(inp))
 }
