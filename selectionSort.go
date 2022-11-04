@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func InsertionSort(inp []int) []int {
+func SelectionSort(inp []int) []int {
 	for i := 0; i < len(inp); i++ {
 		inter := inp[i:]
 		pos, min := minimum(inter)
@@ -24,5 +24,5 @@ func minimum(inp []int) (pos, val int) {
 func main() {
 	inp := []int{4, 6, 2, 8, 1, 9, 5, 4, 4, 76, 123, 87, 9, -4, -2, 34}
 	fmt.Println("Input: ", inp)
-	fmt.Println("After sorting: ", InsertionSort(inp))
+	fmt.Println("After sorting: ", SelectionSort(inp))
 }
