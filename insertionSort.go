@@ -21,7 +21,7 @@ func InsertionSort(input []int) []int {
 }
 
 func main() {
-	inp := []int{3, 3, 1, 2, 6, 8, -1, 23, 56, 56, 1, 1, 4, 6, 9, 1, -43}
+	inp := []int{-3, -6, 4, 2, -9}
 	fmt.Println("Input: ", inp)
 	fmt.Println("After sorting: ", InsertionSort(inp))
 }
